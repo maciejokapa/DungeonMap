@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public GameObject[] room;   //talica wszytskich pokoi
+    public GameObject[] room;  
 
-    public bool spawn=true;    //spawnować czy nie
+    public bool spawn=true;    
 	
 	void Update () {
         
         if (spawn)
         {
-            //if (Random.value > 0.0f)              // możliwa losowość
+            //if (Random.value > 0.0f)            
                 int i= Random.Range(0, room.Length-1);
-                Instantiate(room[i], transform.position, Quaternion.identity);  //spawnuj przypadkowy pokój z tablicy
+                Instantiate(room[i], transform.position, Quaternion.identity);  
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)   //wykrywanie kolizji z innym spawnerem lub z gotowym juz pokojem
+    private void OnTriggerEnter2D(Collider2D collision)   
     {
         if (collision.gameObject.CompareTag("Rooms"))
         {

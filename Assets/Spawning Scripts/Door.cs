@@ -5,18 +5,18 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
 
-    public bool isColliding = false; //parametr do postawienia ściany
-    public GameObject finalDoor;     //ściana do stworzenia
-    public Transform parentRoom;     //poko jako rodzic (można usunąć)
-    public LayerMask whatIsDoor;     //wartswa do wykrycia kolizji drzwi z innymi drzwiami
+    public bool isColliding = false; 
+    public GameObject finalDoor;     
+    public Transform parentRoom;     
+    public LayerMask whatIsDoor;    
 
     public void Spawn()
     {
-        isColliding = Physics2D.IsTouchingLayers(GetComponent<Collider2D>(), whatIsDoor);  //sprawdź czy zachodzi kolizja
-        Invoke("DestroyDoor", 1);      //poczekaj przez to że Room.Update musi przejść po wszytkich drzwiach
+        isColliding = Physics2D.IsTouchingLayers(GetComponent<Collider2D>(), whatIsDoor);  
+        Invoke("DestroyDoor", 1);      
     }
 
-    public void DestroyDoor ()  //postaw ścianęi zniszcz cały ten obiekt
+    public void DestroyDoor () 
     {
         if (!isColliding)
         {

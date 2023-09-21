@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Room : MonoBehaviour {
 
-    public static int count;          //licznik drzwi
-    public int maxNumOfRooms = 1000;  //max liczba drzwi
+    public static int count;          
+    public int maxNumOfRooms = 1000;  
 
     public void Start()
     {
-        count++;  //licz drzwi
+        count++;  
     }
 
     public void Update()
     {
         if (count >= maxNumOfRooms)
         {
-            foreach(Transform child in transform)  //niszczenie spawnerów
+            foreach(Transform child in transform)  
             {
                 if (child.CompareTag("Spawner1"))
                 {
@@ -25,7 +25,7 @@ public class Room : MonoBehaviour {
                 
             }
 
-            foreach (Transform child in transform)  //stawianie drzwi
+            foreach (Transform child in transform)  
             {
                 if (child.CompareTag("Door"))
                 {
